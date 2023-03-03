@@ -61,7 +61,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}" href="{{route('admin.types.index') }}">
-                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Categorie
+                                    <i class="fa-solid fa-file-circle-plus fa-lg fa-fw"></i> Tipologie
                                 </a>
                             </li>
                         </ul>
