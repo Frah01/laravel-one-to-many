@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
+
 class Project extends Model
 {
     protected $fillable = ['title', 'content', 'slug', 'type_id'];

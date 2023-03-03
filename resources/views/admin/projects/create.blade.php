@@ -27,6 +27,14 @@
                     <label for=""><p class="fw-semibold mt-2">Contenuto</p></label>
                     <textarea type="text" class="form-control" placeholder="Contenuto.." id="content" name="content"></textarea>
                 </div>
+                <div class="form-group">
+                    <label class="control-label">Categorie</label>
+                        <select class="form-control" name="type_id" id="type_id">
+                            @foreach($types as $type)
+                            <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 <div class="form-group my-3" >
                     <button type="submit" class="btn btn-sm btn-success" >Aggiungi Progetto</button>
                 </div>
