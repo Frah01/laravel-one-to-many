@@ -34,19 +34,9 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label class="control-label"><p class="fw-semibold">Titolo</p></label>
-                        <input type="text" name="title" class="form-control" placeholder="Inserisci il titolo" value="{{old('title') ?? $type->title}}">   
+                        <label class="control-label"><p class="fw-semibold">Nome</p></label>
+                        <input type="text" name="name" class="form-control" placeholder="Inserisci la tipologia" value="{{old('name') ?? $type->name}}">   
                     </div>
-                        <label for="floatingTextarea2"><p class="fw-semibold mt-1">Descrizione</p></label>
-                        <textarea name="description" class="form-control" placeholder="Descrizione"  rows="10">{{old('content') ?? $type->content}}</textarea>
-                        <div class="form-group">
-                            <label class="control-label">Categorie</label>
-                                <select class="form-control" name="type_id" id="type_id">
-                                    @foreach($types as $type)
-                                    <option value="{{$type->id}}" {{$type->id == old('type_id', $type->type_id) ? 'selected' : " "}}  >{{$type->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
                     <div class="form-group my-3">
                         <button type="submit" class="btn btn-success" class="form-control" >Salva le Modifiche</button>
                     </div>
