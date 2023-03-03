@@ -13,12 +13,16 @@
             <div class="d-flex  align-items-center">  
                 <div class="mt-3 mx-2">
                     <div>
-                        <h4 class="p-2 text-uppercase">Titolo:</h4>
+                        <h4 class="p-2">Titolo:</h4>
                         <p class="p-2 text-uppercase fw-semibold">{{$project['title']}}</p>
                     </div>
                     <div>
                         <h4 class="p-2 fw-semibold">Contenuto:</h4> 
                         <p class="p-2 fw-semibold">{{$project['content']}}</p>  
+                    </div>
+                     <div>
+                        <h4 class="p-2 fw-semibold">Tipo:</h4> 
+                        <p class="p-2 fw-semibold">{{$project->type ? $project->type->name : 'Senza Tipo'}}</p>
                     </div>
                 </div>
             </div> 

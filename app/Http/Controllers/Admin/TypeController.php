@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Type;
 use Illuminate\Http\Request;
+use App\Models\Project;
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
 use App\Http\Controllers\Controller;
 
 class TypeController extends Controller
@@ -15,7 +18,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -25,7 +29,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
@@ -34,9 +38,16 @@ class TypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTypeRequest $request)
     {
-        //
+        $form_data = $request->validated();
+        $slug = Type::generateSlug($request->name);
+        $form_data['slug'] = $slug;
+        $newProject = new Type();
+        $newProject->fill($form_data);
+        $newProject->save();
+
+        return redirect()->route('admin.types.index')->with('message', 'Tipologia aggiunta correttamente');
     }
 
     /**
@@ -47,7 +58,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -58,7 +69,8 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -68,9 +80,14 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+
+        $form_data = $request->validated();
+        $slug = Type::generateSlug($request->name, '-');
+        $form_data['slug'] = $slug;
+        $type->update($form_data);
+        return redirect()->route('admin.types.index')->with('message', 'Tipologia modificata correttamente');
     }
 
     /**
@@ -81,6 +98,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index', compact('type'))->with('message', 'Tipologia eliminata correttamente');
     }
 }
