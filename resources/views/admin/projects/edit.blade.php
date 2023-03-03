@@ -38,9 +38,15 @@
                         <input type="text" name="title" class="form-control" placeholder="Inserisci il titolo" value="{{old('title') ?? $project->title}}">   
                     </div>
                         <label for="floatingTextarea2"><p class="fw-semibold mt-1">Descrizione</p></label>
-                        <textarea name="description" class="form-control" placeholder="Descrizione"  rows="10">
-                            {{old('content') ?? $project->content}}
-                        </textarea>
+                        <textarea name="description" class="form-control" placeholder="Descrizione"  rows="10">{{old('content') ?? $project->content}}</textarea>
+                        <div class="form-group">
+                            <label class="control-label">Categorie</label>
+                                <select class="form-control" name="type_id" id="type_id">
+                                    @foreach($types as $type)
+                                    <option value="{{$type->id}}" {{$type->id == old('type_id', $project->type_id) ? 'selected' : " "}}  >{{$type->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                     <div class="form-group my-3">
                         <button type="submit" class="btn btn-success" class="form-control" >Salva le Modifiche</button>
                     </div>
