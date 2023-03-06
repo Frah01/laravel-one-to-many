@@ -40,7 +40,7 @@
                         <label for="floatingTextarea2"><p class="fw-semibold mt-1">Descrizione</p></label>
                         <textarea name="description" class="form-control" placeholder="Descrizione"  rows="10">{{old('content') ?? $project->content}}</textarea>
                         <div class="form-group">
-                            <label class="control-label">Categorie</label>
+                            <label class="control-label"><p class="fw-semibold mt-1">Categorie</p></label>
                                 <select class="form-control" name="type_id" id="type_id">
                                     @foreach($types as $type)
                                     <option value="{{$type->id}}" {{$type->id == old('type_id', $project->type_id) ? 'selected' : " "}}  >{{$type->name}}</option>

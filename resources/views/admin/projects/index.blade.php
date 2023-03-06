@@ -6,7 +6,6 @@
         {{ __('I tuoi Progetti') }}
     </h2>
     <div class="row justify-content-center">
-        <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-between">
                         <div>
@@ -22,7 +21,6 @@
                 {{session('message')}}
             </div>
             @endif
-        </div>
         <div class="col">
             <div class="card my-3">
                 <div class="card-header">{{ __('User Projects') }}</div>

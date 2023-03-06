@@ -6,7 +6,6 @@
         {{ __('Le tue tipologie') }}
     </h2>
     <div class="row justify-content-center">
-        <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-between">
                         <div>
@@ -22,7 +21,6 @@
                 {{session('message')}}
             </div>
             @endif
-        </div>
         <div class="col">
             <div class="card my-3">
                 <div class="card-header">{{ __('User Projects') }}</div>
@@ -39,9 +37,9 @@
                         <tbody>
                             @foreach($types as $type)
                             <tr>
-                                <td>{{$type->id}}</td>
-                                <td>{{$type->name}}</td>
-                                <td>{{$type->slug}}</td>
+                                <td><p class="fw-semibold">{{$type->id}}</p></td>
+                                <td><p class="fw-semibold">{{$type->name}}</p></td>
+                                <td><p class="fw-semibold">{{$type->slug}}</p></td>
                                 <td>
                                     <div class="d-flex justify-content-center">
                                         <a href="{{route('admin.types.show', $type->slug)}}" class="btn btn-square btn-sm btn-info m-1" title="Ispeziona"><i class="fa fa-eye" ></i></a>

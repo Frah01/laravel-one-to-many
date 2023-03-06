@@ -28,7 +28,7 @@
                     <textarea type="text" class="form-control" placeholder="Contenuto.." id="content" name="content"></textarea>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Categorie</label>
+                    <label class="control-label"><p class="fw-semibold mt-1">Categorie</p></label>
                         <select class="form-control" name="type_id" id="type_id">
                             @foreach($types as $type)
                             <option value="{{$type->id}}">{{$type->name}}</option>
